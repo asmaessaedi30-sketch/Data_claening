@@ -4,7 +4,7 @@ Created by: Asma Essaedi
 Date: Jan 21/2025
 
  This project elaborates on data cleaning techniques on  Nashville housing data
-using Microsoft SQL Server. The main goal is to transform raw and inconsistent data into a clean and ready-to analyze datasetr
+using Microsoft SQL Server. The main goal is to transform raw and inconsistent data into a clean and ready-to-analyze dataset
 
 The Key Skills Demonstrated through this project are as follows:
 - Data standardization and formatting
@@ -38,7 +38,6 @@ SELECT
     MAX(SaleDate) AS LatestDate
 FROM portfolioproject.dbo.NashvilleHousingDataforDataCleaning;
 
-
 -- Step 1: Standardize Data Format. The SaleDate is stored as DateTime, but we only need Date, so I created  a new standardized date column while preserving the original
 SELECT SaleDateConverted, CONVERT(Date, SaleDate)
 FROM portfolioproject.[dbo].[NashvilleHousingDataforDataCleaning]
@@ -50,7 +49,7 @@ ADD SaleDateConverted Date;
 update portfolioproject.[dbo].[NashvilleHousingDataforDataCleaning]
 SET SaleDateConverted = CONVERT(Date, SaleDate)
     
-/*Step 2:  Popular missing Property Addresses. Properties with the same ParcelD should have the same address. 
+/*Step 2:  Populate missing Property Addresses. Properties with the same ParcellD should have the same address. 
     Thus, I used a self-join to populate NULLS from non-NULL records with the same ParcelID*/
     
 SELECT *
@@ -79,7 +78,7 @@ FROM portfolioproject.[dbo].[NashvilleHousingDataforDataCleaning]
 
 SELECT 
 SUBSTRING(PropertyAddress, 1, CHARINDEX(',', PropertyAddress)-1) as Address
-, SUBSTRING(PropertyAddress, CHARINDEX(',', PropertyAddress)+ 1, LEN(PropertyAddress)) as Address
+, SUBSTRING(PropertyAddress, CHARINDEX(',', PropertyAddress)+ 1, LEN(PropertyAddress)) as City
 FROM portfolioproject.[dbo].[NashvilleHousingDataforDataCleaning]
 
 ALTER TABLE portfolioproject.[dbo].[NashvilleHousingDataforDataCleaning]
@@ -185,11 +184,11 @@ Project Conclusion
 
 Key Achievements:
 1/ Successfully standardized data formats for consistent temporal analysis 
-2/ Resolvced 100% of missing property addresses using smart match 
+2/ Resolved 100% of missing property addresses using smart match 
 3/ parsed compound address fields into atomic components for granular analysis
 4/ Normalized categories, which support consistent reporting 
 5/Implemented non-destructive duplicate identification for data integrity 
-6/ C reated an analysis-ready view with all the transformation processes applied
+6/ Created an analysis-ready view with all the transformation processes applied
 
 
 Business Impact: 
