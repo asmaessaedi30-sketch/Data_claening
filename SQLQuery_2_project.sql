@@ -23,7 +23,6 @@ The following are the methodologies that I used:
 3/ split address into standardized components
 4/ Identify and handle duplicate records
 
-Notes: All transformations are non-destructive. Original columns remain intact.
 ********************************************************************************/ 
 
 
