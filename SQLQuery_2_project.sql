@@ -195,8 +195,8 @@ Key Achievements:
 Business Impact: 
 Cleaned data allows for accurate property valuation analysis 
 Standardized addresses facilitate geographic segmentation 
-Normilazation support consistent reporting 
-Preserved original data maintains the audit trail
+Normalization supports consistent reporting 
+Preserving original data maintains the audit trail
 
 ********************************************************************************/ 
 
